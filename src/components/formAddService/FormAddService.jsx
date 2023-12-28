@@ -9,12 +9,14 @@ import TextField from '@mui/material/TextField';
 import BusinessServices from "../../stores/businessServices.js";
 import Swal from 'sweetalert2'
 import X from '../../assets/images/X.gif'
-import { useEffect } from "react";
+import * as React from 'react';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 const FormAddService = observer(() => {
-   
+
     const [isOpen, setIsOpen] = useState(false);
     const [formData, setFormData] = useState({
-        serviceId:   String(BusinessServices.businessServicesList.length),
+        serviceId: String(BusinessServices.businessServicesList.length),
         name: '',
         serviceDescription: '',
         servicePrice: '',
@@ -43,11 +45,11 @@ const FormAddService = observer(() => {
 
         // Reset the form after submitting
         setFormData({
-        serviceId:  String(BusinessServices.businessServicesList.length),
-        name: '',
-        serviceDescription: '',
-        servicePrice: '',
-        serviceImage: ''
+            serviceId: String(BusinessServices.businessServicesList.length),
+            name: '',
+            serviceDescription: '',
+            servicePrice: '',
+            serviceImage: ''
         });
         setIsOpen(false);
     };
@@ -56,8 +58,9 @@ const FormAddService = observer(() => {
 
     return (
         <>
-            <Button variant="contained" onClick={() => setIsOpen(true)}>הוסף שירות</Button>
-
+            <Fab color="primary" aria-label="add">
+        <AddIcon  variant="contained" onClick={() => setIsOpen(true)} />
+      </Fab>
             <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
                 <DialogTitle>  Set service</DialogTitle>
                 <DialogContent>

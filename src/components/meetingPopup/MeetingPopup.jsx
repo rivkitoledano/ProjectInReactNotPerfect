@@ -45,12 +45,16 @@ const MeetingPopup = observer(({servNum=0}) => {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          Swal.fire("Saved!", "", "success");
           event.preventDefault();
           MeetingStore.addMeeting(formData);
+          if(!MeetingStore.addMeeting(formData))
+              Swal.fire("change the date  ") 
+          else      
+           Swal.fire("Saved!", "", "success");
+
+        } else  {
           
-        } else if (result.isDenied) {
-          Swal.fire("Changes are not saved", "", "info");
+          Swal.fire("data not avalable", "", "info");
         }
       });
 

@@ -12,8 +12,9 @@ const ServiceBusinessList = observer(() => {
   // }, [])
   return (
     <>
+    <div className='addService'>
       <FormAddService></FormAddService>
-
+      </div>
       <div className="container">
         {BusinessServices.businessServicesList.map((_, ind) => <ServiceInAdmin key={ind} i={ind}></ServiceInAdmin>)}
       </div>

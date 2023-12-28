@@ -1,7 +1,6 @@
 
-import { observable, makeObservable, action, computed } from 'mobx';
 import { observer } from 'mobx-react';
-import MeetingStore from '../../stores/managementOfMeetings.js';
+import MeetingStore from '../../stores/managementOfMeetings.js'
 import SingleAppointment from '../singleAppointment/SingleAppointment';
 
 import { useEffect } from "react";

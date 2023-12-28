@@ -29,14 +29,19 @@ class MeetingStore {
             console.log(response.status)
         if (response.status === 200) {
             this.meetingsList=([...this.meetingsList, meeting]  )
-            console.log(this.meetingsList.length)
+            return true
+        }
+        else{
+            return false
         }
     }
+     
      initialMeeting = async () => {
         const response = await fetch("http://localhost:8787/appointments");
         const data = await response.json();
         console.log(data);
         this.meetingsList=([...data]);
+
     }
  
 }

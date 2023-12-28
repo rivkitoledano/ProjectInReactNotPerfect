@@ -22,14 +22,15 @@ const SingleService = observer(() => {
           {serv && <div>{serv.serviceDescription}</div>}
           {serv && <div>מחיר: {serv.servicePrice}</div>}
 
-        </div>
         <div className="addmeet">
-          <div className="image">
-            {serv && <img className="oneimage" src={serv.serviceImage} alt="Service Image" />}
-          </div>
-        </div>
         <MeetingPopup servNum={serviceId}></MeetingPopup>
 
+        </div>
+        </div>
+
+        <div className="image">
+            {serv && <img className="oneimage" src={serv.serviceImage} alt="Service Image" />}
+          </div>
       </div>
 
     </>

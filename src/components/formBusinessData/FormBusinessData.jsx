@@ -1,4 +1,4 @@
-import { useState,useEffect} from "react";
+import { useState} from "react";
 import { observer } from 'mobx-react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -9,7 +9,9 @@ import TextField from '@mui/material/TextField';
 import BusinessServices from "../../stores/businessServices.js";
 import Swal from 'sweetalert2'
 import X from '../../assets/images/X.gif'
-
+import { useEffect } from "react";
+import Fab from '@mui/material/Fab';
+import EditIcon from '@mui/icons-material/Edit';
 const FormBusinessData = observer(() => {
     useEffect(() => {
         BusinessServices.initialBusinessData();
@@ -62,8 +64,9 @@ const FormBusinessData = observer(() => {
 
     return (
         <>
-            <Button variant="contained" onClick={() => setIsOpen(true)}>ערוך פרטי עסק</Button>
-
+            <Fab color="secondary" aria-label="edit">
+        <EditIcon variant="contained" onClick={() => setIsOpen(true)}/>
+      </Fab>
             <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
                 <DialogTitle>  Set Business Details</DialogTitle>
                 <DialogContent>

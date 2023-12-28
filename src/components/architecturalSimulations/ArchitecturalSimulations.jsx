@@ -24,8 +24,7 @@ const { service } = useParams()
 
         </div>
         <div className="content">
-
-          {service ? <Outlet context={[service]} /> : <SingleService context={[0]}></SingleService>}
+           {service ? <Outlet context={[service]} /> : <SingleService context={[0]}></SingleService>}
 
         </div>
       </div>
